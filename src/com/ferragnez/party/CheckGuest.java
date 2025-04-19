@@ -4,38 +4,43 @@ import java.util.Scanner;
 
 public class CheckGuest {
     public static void main(String[] args) {
-        
+
         Scanner array = new Scanner(System.in);
-        
-        //ARRAY DI STRINGHE
-        String[] listaInvitati = {"Dua Lipa", "Paris Hilton", "Manuel Agnelli", "J-Ax","Francesco Totti", "Ilary Blasi", "Bebe Vio", "Luis", "Pardis Zarei", "Martina Maccherone", "Rachel Zeilic"};
 
-        
-        System.out.println("Qual'è il tuo nome?");
-        String nome = array.nextLine(); 
-        System.out.println("Il nome che  hai appena inserito e': " + "" + nome);
+        // ARRAY DI STRINGHE-LISTA INVITATI
+        String[] listaInvitati = { "Dua Lipa", "Paris Hilton", "Manuel Agnelli", "J-Ax", "Francesco Totti",
+                "Ilary Blasi", "Bebe Vio", "Luis", "Pardis Zarei", "Martina Maccherone", "Rachel Zeilic" };
 
+        // MESSAGGIO DI BENVENUTO
+        System.out.println("Benvenuto al Ferragnez-Party, mi dica il suo nome");
 
- 
-        //CICLO FOR
+        // VARIABILE STRINGA-INSERIMENTO NOME DALL'UTENTE
+        String nomeInserito = array.nextLine();
+        System.out.println("Il nome che  hai appena inserito e': " + nomeInserito);
+
+        // VARIABILE BOOLEANA
         boolean invitato = false;
-        for(int i = 0; i < listaInvitati.length; i++){
-            System.out.println(listaInvitati[i]);
-           
 
-            if (listaInvitati[i].equals(nome)){
+        // CICLO FOR-SCORRIMENTO LISTA DEGLI INVITATI
+        for (int i = 0; i < listaInvitati.length; i++) {
+
+            // CONDIZIONI
+            if (listaInvitati[i].equals(nomeInserito)) {
                 invitato = true;
-                System.out.println("Il suo nome è presente nella lista,si accomodi : " + "" + nome);
-                break;
-            }else{
-                System.out.println("Mi dispiace,il suo nome non è presente nella lista degli invitati");
                 break;
             }
 
         }
 
+        if (invitato) {
+            System.out.println("Il suo nome è presente nella lista degli invitati, si accomodi : " + nomeInserito);
+
+        } else {
+            System.out.println("Mi dispiace il suo nome non è presente nella lista degli invitati");
+        }
+
         array.close();
 
     }
-     
+
 }
